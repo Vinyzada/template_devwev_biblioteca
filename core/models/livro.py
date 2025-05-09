@@ -1,5 +1,8 @@
 from django.db import models
-from core.models import Categoria, Editora, Autor
+
+from .autor import Autor
+from .categoria import Categoria
+from .editora import Editora
 
 class Livro(models.Model):
     titulo = models.CharField(max_length=255)
