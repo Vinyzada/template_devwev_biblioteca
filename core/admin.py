@@ -49,6 +49,12 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
 
+class ItensCompraInline(admin.TabularInline):
+    model = models.ItensCompra
+    extra = 1
+
+class CompraAdmin(admin.ModelAdmin):
+    inlines = [ItensCompraInline]
 
 admin.site.register(models.User, UserAdmin)
 admin.site.register(models.Categoria)
@@ -56,3 +62,4 @@ admin.site.register(models.Editora)
 admin.site.register(models.Autor)
 admin.site.register(models.Livro)
 admin.site.register(models.Compra, list_display=['usuario', 'status'])
+admin.site.register(models.ItensCompra, list_display=['compra', 'livro', 'quantidade'])
